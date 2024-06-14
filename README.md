@@ -1,4 +1,4 @@
-# IS-601-moderterm-project
+# IS-601-midterm-project
 
 **TOPIC:Dosa Restaurant Order Management System**
 
