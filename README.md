@@ -1,45 +1,68 @@
-# IS-601-midterm-project
+**Dosa Restaurant Order Management System**
 
-**TOPIC:Dosa Restaurant Order Management System**
+**Overview**
+**IS-601 Midterm Project**
 
-**Order Processing Script**
-This Python script processes JSON files containing order data. It reads the orders, extracts customer information (names and phone numbers), and processes item data (names, prices, and order counts). The extracted information is then written into separate JSON files (`customers.json` and `items.json`). Users can execute the script from the command line, providing the path to their JSON file as an argument, and receive clear feedback on the success or failure of the operations performed.
+This Python project manages orders for a Dosa restaurant using JSON files. The script reads JSON files containing order data, extracts customer information (names and phone numbers), and processes item data (names, prices, and order counts). It outputs the extracted information into separate JSON files (customers.json and items.json). The script is designed to be executed from the command line, allowing users to specify the path to their JSON file as an argument and receive feedback on the success or failure of the operations performed.
 
 **Design**
-The script is designed with modularity and clarity in mind, utilizing Python's capabilities to handle JSON data and command-line arguments effectively. It comprises several key functions: `read_orders_from_file()` reads JSON-formatted order data from a specified file, handling errors such as file not found or JSON decoding issues. `extract_customers()` extracts customer names and phone numbers from the orders, validating phone numbers using regular expressions. `write_customers_to_file()` writes extracted customer data into a JSON file. `process_orders()` processes orders to extract item names, prices, and count orders using a `defaultdict` for efficient data aggregation. `write_items_to_file()` writes processed item data into another JSON file. The main function `main()` coordinates these functions based on command-line input, ensuring clear output messages and error handling throughout. This design ensures the script can robustly handle input variations, process data accurately, and provide clear feedback to users, making it suitable for automating order data management tasks in a variety of scenarios.
-**Example**
--read_orders_from_file(file_path): Reads JSON orders from a specified file path.
--extract_customers(orders): Extracts customer names and phone numbers from orders.
--write_customers_to_file(customers, file_path): Writes customer data to a JSON file.
--process_orders(orders): Processes orders to extract item names, prices, and count orders.
--write_items_to_file(items, file_path): Writes item data to a JSON file.
+The script is structured with modularity and clarity in mind, leveraging Python's capabilities to handle JSON data and command-line arguments efficiently. Key functions include:
 
-**The main function main() orchestrates the entire process:**
+read_orders_from_file(file_path): Reads JSON orders from a specified file path, handling errors such as file not found or JSON decoding issues.
 
--It checks if a JSON file path is provided as a command-line argument.
--It reads orders from the input file.
--Depending on the task, it either extracts customer information or processes item data.
--Results are written to separate JSON files (customers.json and items.json).
+extract_customers(orders): Extracts customer names and phone numbers from orders, validating phone numbers using regular expressions.
 
-**Usage**
-To use the script, first ensure to have Python 3.x installed on the system. Download or clone the script files from the repository. Open a terminal or command prompt, navigate to the directory containing the script, and execute it with Python, providing a path to the JSON input file as a command-line argument.For example, run python script.py orders.json where orders.json is the JSON file containing order details. Follow the console output for status messages, including successful data processing or error notifications if issues arise during file reading, JSON decoding, or data extraction. The script will generate customers.json containing extracted customer information and items.json with processed item data, making it easy to manage and analyze order information programmatically. 
+write_customers_to_file(customers, file_path): Writes extracted customer data into a JSON file (customers.json).
+
+process_orders(orders): Processes orders to extract item names, prices, and count orders using defaultdict for efficient data aggregation.
+
+write_items_to_file(items, file_path): Writes processed item data into another JSON file (items.json).
+
+The main() function orchestrates these functions based on command-line input, ensuring clear output messages and comprehensive error handling throughout. This design enables the script to handle various input scenarios, process data accurately, and provide actionable feedback to users, making it suitable for automating order data management tasks.
+
+**Example Usage**
+**Prerequisites**
+-Python 3.x installed on your system.
+-JSON-formatted input files containing order data.
+
+**Running the Script**
+**-Download or Clone the Repository**
+Clone the repository to your local machine or download the script files.
+
+git clone https://github.com/your-username/IS-601-midterm-project.git
+
+**-Navigate to the Script Directory**
+Open a terminal or command prompt and navigate to the directory containing the script files.
+
+cd IS-601-midterm-project
+
+**-Execute the Script**
+Run the script using Python, providing the path to your JSON input file as a command-line argument.
+
+python script.py orders.json (Replace orders.json with the actual filename of your JSON input file.)
+
+**Output**
+
+-The script will process the orders and generate two output files:
+-customers.json: Contains extracted customer information.
+-items.json: Contains processed item data.
+
+**Advanced Usage**
+-Saving Output to a File
+Redirect script output to a text file for record-keeping or further analysis.
+
+python script.py orders.json > output.txt(This command saves the console output to output.txt.)
+
+**License**
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 **Prerequisites**
 -Python 3.x
 -JSON-formatted input files
 
-**Running the Script**
--download the script files.
--Open a terminal or command prompt.
--Navigate to the directory containing the script files.
-
-**Execute the script with the following command:**
--python script.py <json_file_path>
-**example:**
-python read_orders.py example_orders.json
-
-saving output file into .txt file:
--python script.py <json_file_path> > output.txt
-**Example:**
-python read_orders.py example_orders.json > read_orders_output.txt 
+**Notes**
+-Update placeholders like your-username in the clone command with your actual GitHub username or repository URL.
+-Customize file paths (orders.json, script.py) according to your project's structure.
+-Ensure all dependencies are installed (as listed in requirements.txt) before running the script.
+-Include additional sections or details specific to your project's requirements or usage scenarios.
 
