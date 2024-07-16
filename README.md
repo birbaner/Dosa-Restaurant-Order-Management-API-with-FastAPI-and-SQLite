@@ -1,68 +1,99 @@
-**Dosa Restaurant Order Management System**
+**Dosa Restaurant Order Management API**
+This project is a RESTful API for managing customer orders, items, and customer information for a dosa restaurant. Built with FastAPI and SQLite, it provides a simple and efficient way to perform CRUD operations on customers, items, and orders.
 
-**Overview**
-**IS-601 Midterm Project**
+**Table of Contents**
+-Features
+-Technologies
+-Installation
+-Usage
+-API Endpoints
+-Database Structure
+-Running the Application
+-License
 
-This Python project manages orders for a Dosa restaurant using JSON files. The script reads JSON files containing order data, extracts customer information (names and phone numbers), and processes item data (names, prices, and order counts). It outputs the extracted information into separate JSON files (customers.json and items.json). The script is designed to be executed from the command line, allowing users to specify the path to their JSON file as an argument and receive feedback on the success or failure of the operations performed.
+**Features**
+-Create, retrieve, update, and delete customers, items, and orders.
+-Uses relational constraints (primary and foreign keys) to maintain data integrity.
+-Simple JSON-based input and output for easy integration with front-end applications.
 
-**Design**
-The script is structured with modularity and clarity in mind, leveraging Python's capabilities to handle JSON data and command-line arguments efficiently. Key functions include:
+**Project Structure**
 
-read_orders_from_file(file_path): Reads JSON orders from a specified file path, handling errors such as file not found or JSON decoding issues.
+dosa_restaurant/
+│
+├── api/                     # Contains the FastAPI application code
+│   ├── main.py              # Main FastAPI application
+│
+├── db/                      # Database directory (optional)
+│   ├── db.sqlite            # SQLite database file
+│
+├── init_db.py               # Script to initialize the SQLite database
+├── example_orders.json       # Sample JSON file with order data
+└── README.md                 # Project documentation
 
-extract_customers(orders): Extracts customer names and phone numbers from orders, validating phone numbers using regular expressions.
+**Setup and Installation**
+Requirements
+Python 3.7+
+FastAPI
+SQLite
+Uvicorn
 
-write_customers_to_file(customers, file_path): Writes extracted customer data into a JSON file (customers.json).
+**Installation Steps**
+1. Clone the repository:
+git clone <your-repo-url>
+cd dosa_restaurant
 
-process_orders(orders): Processes orders to extract item names, prices, and count orders using defaultdict for efficient data aggregation.
+2.Create a virtual environment:
+python -m venv myenv
+source myenv/bin/activate  # On Windows use: myenv\Scripts\activate
 
-write_items_to_file(items, file_path): Writes processed item data into another JSON file (items.json).
+3.Install the required packages:
+pip install fastapi[all]
 
-The main() function orchestrates these functions based on command-line input, ensuring clear output messages and comprehensive error handling throughout. This design enables the script to handle various input scenarios, process data accurately, and provide actionable feedback to users, making it suitable for automating order data management tasks.
+4.Initialize the database: Run the init_db.py script to set up the SQLite database:
+python init_db.py
 
-**Example Usage**
-**Prerequisites**
--Python 3.x installed on your system.
--JSON-formatted input files containing order data.
+5.Run the FastAPI application:
+uvicorn api.main:app --reload
 
-**Running the Script**
-**-Download or Clone the Repository**
-Clone the repository to your local machine or download the script files.
+**The API will be accessible at http://127.0.0.1:8000.**
 
-git clone https://github.com/your-username/IS-601-midterm-project.git
+**Usage**
+You can interact with the API using tools like Postman or directly through the interactive API documentation at http://127.0.0.1:8000/docs.
 
-**-Navigate to the Script Directory**
-Open a terminal or command prompt and navigate to the directory containing the script files.
-
-cd IS-601-midterm-project
-
-**-Execute the Script**
-Run the script using Python, providing the path to your JSON input file as a command-line argument.
-
-python script.py orders.json (Replace orders.json with the actual filename of your JSON input file.)
-
-**Output**
-
--The script will process the orders and generate two output files:
--customers.json: Contains extracted customer information.
--items.json: Contains processed item data.
-
-**Advanced Usage**
--Saving Output to a File
-Redirect script output to a text file for record-keeping or further analysis.
-
-python script.py orders.json > output.txt(This command saves the console output to output.txt.)
 
 **License**
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the MIT License. 
 
-**Prerequisites**
--Python 3.x
--JSON-formatted input files
+**Acknowledgments**
+-Thanks to FastAPI for providing an easy and efficient framework for building APIs.
+-Special thanks to SQLite for lightweight database management.
 
-**Notes**
--Update placeholders like your-username in the clone command with your actual GitHub username or repository URL.
--Customize file paths (orders.json, script.py) according to your project's structure.
--Ensure all dependencies are installed (as listed in requirements.txt) before running the script.
--Include additional sections or details specific to your project's requirements or usage scenarios.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
