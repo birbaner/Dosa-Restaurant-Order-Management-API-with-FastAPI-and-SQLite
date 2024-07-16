@@ -23,9 +23,11 @@ dosa_restaurant/
 ├── api/                     # Contains the FastAPI application code
 │   ├── main.py              # Main FastAPI application
 │
+
 ├── db/                      # Database directory (optional)
 │   ├── db.sqlite            # SQLite database file
 │
+
 ├── init_db.py               # Script to initialize the SQLite database
 ├── example_orders.json       # Sample JSON file with order data
 └── README.md                 # Project documentation
